@@ -27,8 +27,9 @@ jobs:
           distribution: 'temurin'
 
       - name: Build JAR
-        run: ./gradlew jar
-
+        run: |
+          chmod +x ./gradlew
+          ./gradlew jar
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
