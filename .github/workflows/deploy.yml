@@ -30,6 +30,7 @@ jobs:
         run: |
           chmod +x ./gradlew
           ./gradlew jar
+          
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
