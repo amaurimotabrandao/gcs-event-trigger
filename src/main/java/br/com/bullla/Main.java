@@ -45,16 +45,7 @@ public class Main {
         String body = new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8);
         System.out.println("Event received: " + body);
 
-        JsonObject event = new Gson().fromJson(body, JsonObject.class);
-        String bucket = event.getAsJsonObject("message")
-                .getAsJsonObject("attributes")
-                .get("bucketId").getAsString();
-        String file = event.getAsJsonObject("message")
-                .getAsJsonObject("attributes")
-                .get("objectId").getAsString();
-
-        sendPost(bucket, file);
-
+        // responde 200 por enquanto para ver o payload
         exchange.sendResponseHeaders(200, -1);
         exchange.close();
     }
